@@ -26,7 +26,7 @@ from base64 import standard_b64encode
 
 from bot import LOGGER, UPTOBOX_TOKEN, PHPSESSID, CRYPT
 from bot.helper.telegram_helper.bot_commands import BotCommands
-from bot.helper.ext_utils.bot_utils import is_gdtot_link
+from bot.helper.ext_utils.bot_utils import is_gdtot_link, is_gp_link
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 
 cookies = {"PHPSESSID": PHPSESSID, "crypt": CRYPT}
