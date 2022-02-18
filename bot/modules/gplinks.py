@@ -15,3 +15,32 @@ import time
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
+
+def gplinks(update ,context):
+    args = update.message.text.split(" ", maxsplit=1)
+    reply_to = update.message.reply_to_message
+    if len(args) > 1:
+        link = args[1]
+    elif reply_to is not None:
+        link = reply_to.text
+
+    if gplinks_bypass(link):
+       client = requests.Session()
+       res = client.get(link)
+       
+       bs4 = BeautifulSoup(res.content, 'lxml')
+       inputs = bs4.find_all('input')
+       data = { input.get('name'): input.get('value') for input in inputs }
+
+       h = {
+        'content-type': 'application/x-www-form-urlencoded',
+        'x-requested-with': 'XMLHttpRequest'
+    }
+       time.sleep(10)
+       p = urlparse(url)
+       final_url = f'{p.scheme}://{p.netloc}/links/go'
+       res = client.post(final_url, data=data, headers=h).json()
+
+       return res
+      
+
