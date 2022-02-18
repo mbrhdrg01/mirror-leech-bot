@@ -37,7 +37,7 @@ def gplinks(update ,context):
         'x-requested-with': 'XMLHttpRequest'
     }
        time.sleep(10)
-       p = urlparse(url)
+       p = urlparse(link)
        final_url = f'{p.scheme}://{p.netloc}/links/go'
        res = client.post(final_url, data=data, headers=h).json()
 
