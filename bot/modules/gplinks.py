@@ -20,15 +20,15 @@ def gplinks(update ,context):
     args = update.message.text.split(" ", maxsplit=1)
     reply_to = update.message.reply_to_message
     if len(args) > 1:
-        link = args[1]
+         url = args[1]
     elif reply_to is not None:
-        link = reply_to.text
+         url = reply_to.text
     else:
-        link = ''
-    gp_link = is_gp_link(link)
+        url = ''
+    gp_link = is_gp_link(url)
     if gp_link:
        client = requests.Session()
-       res = client.get(link)
+       res = client.get(url)
        
        bs4 = BeautifulSoup(res.content, 'lxml')
        inputs = bs4.find_all('input')
