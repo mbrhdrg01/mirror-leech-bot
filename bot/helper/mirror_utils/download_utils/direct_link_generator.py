@@ -101,7 +101,7 @@ def direct_link_generator(link: str):
     elif is_gdtot_link(link):
         return gdtot(link)
     elif is_gp_link(link):
-         return gplinks(link(
+         return gplinks(link)
     else:
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
 
