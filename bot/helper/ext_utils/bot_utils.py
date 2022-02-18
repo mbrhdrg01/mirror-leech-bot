@@ -224,6 +224,10 @@ def is_url(url: str):
     url = re.findall(URL_REGEX, url)
     return bool(url)
 
+def is_gp_link(url: str):
+    url = re.match(r'https?://.*\.gplinks\.\S+', url)
+    return bool(url)
+
 def is_gdrive_link(url: str):
     return "drive.google.com" in url
 
