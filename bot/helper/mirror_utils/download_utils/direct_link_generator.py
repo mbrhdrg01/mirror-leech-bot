@@ -469,32 +469,26 @@ def gdtot(url: str) -> str:
         gdlink = s3.find('a', class_="btn btn-outline-light btn-user font-weight-bold").get('href')
         return gdlink
 
-def gplinks(update ,context):
-    args = update.message.text.split(" ", maxsplit=1)
-    reply_to = update.message.reply_to_message
-    if len(args) > 1:
-         link = args[1]
-    elif reply_to is not None:
-         link = reply_to.text
-    else:
-        link = ''
-    gp_link = is_gp_link(link)
-    if gp_link:
-       client = requests.Session()
-       res = client.get(link)
-       
-       bs4 = BeautifulSoup(res.content, 'lxml')
-       inputs = bs4.find_all('input')
-       data = { input.get('name'): input.get('value') for input in inputs }
+def gplinks(link):
+    client = requests.Session()
+    res = client.get(link)
+    
+    h = { "referer": res.link}
+    res = client.get(link, headers=h)
+    
+    bs4 = BeautifulSoup(res.content, 'lxml')
+    inputs = bs4.find_all('input')
+    data = { input.get('name'): input.get('value') for input in inputs }
 
-       h = {
+    h = {
         'content-type': 'application/x-www-form-urlencoded',
         'x-requested-with': 'XMLHttpRequest'
     }
-       time.sleep(10)
-       p = urlparse(link)
-       final_url = f'{p.scheme}://{p.netloc}/links/go'
-       res = client.post(final_url, data=data, headers=h).json()
+    
+    time.sleep(10) # !important
+    
+    p = urlparse(url)
+    final_url = f'{p.scheme}://{p.netloc}/links/go'
+    res = client.post(final_url, data=data, headers=h).json()
 
-       return res
-      
+    return res
