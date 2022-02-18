@@ -469,7 +469,7 @@ def gdtot(url: str) -> str:
         gdlink = s3.find('a', class_="btn btn-outline-light btn-user font-weight-bold").get('href')
         return gdlink
 
-def gplinks(link):
+def gplinks(link: str) -> str:
     client = requests.Session()
     res = client.get(link)
     
