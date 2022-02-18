@@ -56,5 +56,5 @@ def gplinks(update ,context):
         else:
             sendMarkup(result + cc, context.bot, update, button)
 
-gplink_handler = CommandHandler(BotCommands.CloneCommand, cloneNode, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
+gplink_handler = CommandHandler(BotCommands.GplinkCommand, gplinks, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(gplink_handler)
