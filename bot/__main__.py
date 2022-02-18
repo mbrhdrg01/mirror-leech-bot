@@ -131,6 +131,8 @@ help_string_telegraph = f'''<br>
 <br><br>
 <b>/{BotCommands.CloneCommand}</b> [drive_url]: Copy file/folder to Google Drive
 <br><br>
+<b>/{BotCommands.GplinkCommand}</b> [gplink_url]: Copy gplink content to Google Drive
+<br><br>
 <b>/{BotCommands.CountCommand}</b> [drive_url]: Count file/folder of Google Drive Links
 <br><br>
 <b>/{BotCommands.DeleteCommand}</b> [drive_url]: Delete file from Google Drive (Only Owner & Sudo)
@@ -205,6 +207,7 @@ botcmds = [
         (f'{BotCommands.QbZipMirrorCommand}','Start mirroring and upload as .zip using qb'),
         (f'{BotCommands.QbUnzipMirrorCommand}','Extract files using qBitorrent'),
         (f'{BotCommands.CloneCommand}','Copy file/folder to Drive'),
+        (f'{BotCommands.GplinkCommand}','Copy Gplink Content  to Drive'),
         (f'{BotCommands.CountCommand}','Count file/folder of Drive link'),
         (f'{BotCommands.DeleteCommand}','Delete file from Drive'),
         (f'{BotCommands.WatchCommand}','Mirror Youtube-dl support link'),
