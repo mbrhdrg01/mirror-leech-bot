@@ -23,7 +23,6 @@ def gplinks(update ,context):
         link = args[1]
     elif reply_to is not None:
         link = reply_to.text
-
     if gplinks_bypass(link):
        client = requests.Session()
        res = client.get(link)
