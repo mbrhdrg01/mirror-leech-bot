@@ -46,18 +46,6 @@ def gplinks(update ,context):
        return res
       
 
-    if update.message.from_user.username:
-            uname = f'@{update.message.from_user.username}'
-    else:
-            uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
-    if uname is not None:
-            cc = f'\n\n<b>cc: </b>{uname}'
-            men = f'{uname} '
-    if button in ["cancelled", ""]:
-            sendMessage(men + result, context.bot, update)
-     
-    else:
-            sendMarkup(result + cc, context.bot, update, button)
-
+    
 gplink_handler = CommandHandler(BotCommands.GplinkCommand, gplinks, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(gplink_handler)
