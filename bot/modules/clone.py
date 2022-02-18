@@ -88,6 +88,8 @@ def cloneNode(update, context):
             sendMarkup(result + cc, context.bot, update, button)
         if gdtot_link:
             gd.deletefile(link)
+        if is_gp_link:
+             gd.deletefile(link)
     else:
         sendMessage('Send Gdrive or gdtot link along with command or by replying to the link by command', context.bot, update)
 
