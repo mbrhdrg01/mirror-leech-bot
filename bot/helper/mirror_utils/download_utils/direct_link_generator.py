@@ -471,12 +471,13 @@ def gdtot(url: str) -> str:
         gdlink = s3.find('a', class_="btn btn-outline-light btn-user font-weight-bold").get('href')
         return gdlink
 
-def gplinks(link: str) -> str:
-    client = requests.Session()
-    res = client.get(link)
+
+def gplinks_bypass(url: str) -> str:
+    scraper = cloudscraper.create_scraper(allow_brotli=False)
+    res = scraper.get(url)
     
-    h = { "referer": res.link}
-    res = client.get(link, headers=h)
+    h = { "referer": res.url }
+    res = scraper.get(url, headers=h)
     
     bs4 = BeautifulSoup(res.content, 'lxml')
     inputs = bs4.find_all('input')
@@ -491,6 +492,6 @@ def gplinks(link: str) -> str:
     
     p = urlparse(url)
     final_url = f'{p.scheme}://{p.netloc}/links/go'
-    res = client.post(final_url, data=data, headers=h).json()
+    res = scraper.post(final_url, data=data, headers=h).json()
 
     return res
