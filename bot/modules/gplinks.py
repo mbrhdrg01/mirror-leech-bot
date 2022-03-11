@@ -13,20 +13,10 @@ from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 
 import time
 import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urlparse
-
-import time
-import requests
 import cloudscraper
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 import argparse
-
-arguments = argparse.ArgumentParser()
-arguments.add_argument("-url", "--url", dest="url", help="urllink")
-args = arguments.parse_args()
-url = args.url # eg: https://gplinks.co/XXXX
 
 # ==============================================
 
