@@ -20,7 +20,7 @@ import argparse
 
 # ==============================================
 
-def gplinks_bypass(url):
+def gplinks(update,context,url):
     args = update.message.text.split(" ", maxsplit=1)
     reply_to = update.message.reply_to_message
     if len(args) > 1:
