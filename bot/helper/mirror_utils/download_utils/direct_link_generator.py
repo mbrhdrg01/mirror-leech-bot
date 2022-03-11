@@ -472,7 +472,7 @@ def gdtot(url: str) -> str:
         return gdlink
 
 
-def gplinks_bypass(url: str) -> str:
+def gplinks(url: str) -> str:
     scraper = cloudscraper.create_scraper(allow_brotli=False)
     res = scraper.get(url)
     
