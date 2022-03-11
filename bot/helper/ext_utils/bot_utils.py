@@ -225,7 +225,7 @@ def is_url(url: str):
     return bool(url)
 
 def is_gp_link(url: str):
-    url = re.match(r'https://gplinks.co', url)
+    url = re.findall(r'\bhttps?://.*gplinks\.co\S+', url)
     return bool(url)
 
 def is_gdrive_link(url: str):
