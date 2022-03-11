@@ -19,9 +19,7 @@ from urllib.parse import urlparse
 import argparse
 
 # ==============================================
-
-def gplinks(update,context):
-    args = update.message.text.split(" ", maxsplit=1)
+args = update.message.text.split(" ", maxsplit=1)
     reply_to = update.message.reply_to_message
     if len(args) > 1:
         url = args[1]
@@ -30,6 +28,9 @@ def gplinks(update,context):
     else:
         url = ''
     url = is_gp_link(link)
+
+def gplinks(update,context,url: str) -> str:
+    
     scraper = cloudscraper.create_scraper(allow_brotli=False)
     res = scraper.get(url)
     
