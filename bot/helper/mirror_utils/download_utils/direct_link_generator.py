@@ -475,6 +475,7 @@ def gdtot(url: str) -> str:
 
 
 def gplinks(url: str) -> str:
+    url = "https://gplinks.co/4ZGqFhUB"
     scraper = cloudscraper.create_scraper(allow_brotli=False)
     res = scraper.get(url)
     
