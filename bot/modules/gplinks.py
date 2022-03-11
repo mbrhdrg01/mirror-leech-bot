@@ -19,18 +19,17 @@ from urllib.parse import urlparse
 import argparse
 
 # ==============================================
-args = update.message.text.split(" ", maxsplit=1)
-reply_to = update.message.reply_to_message
-if len(args) > 1:
+
+def gplinks(update,context):
+    args = update.message.text.split(" ", maxsplit=1)
+    reply_to = update.message.reply_to_message
+    if len(args) > 1:
         url = args[1]
-elif reply_to is not None:
+    elif reply_to is not None:
         url = reply_to.text
-else:
+    else:
         url = ''
         url = is_gp_link(link)
-
-def gplinks(update,context,url: str) -> str:
-    
     scraper = cloudscraper.create_scraper(allow_brotli=False)
     res = scraper.get(url)
     
