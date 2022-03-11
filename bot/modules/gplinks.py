@@ -38,6 +38,6 @@ def gplinks(update, context):
         sendMessage('No Reply', context.bot, update)
 
 
-GPLINKS_HANDLER = CommandHandler(BotCommands.gplinksCommand, shell,
+GPLINKS_HANDLER = CommandHandler(BotCommands.gplinkCommand, shell,
                                                   filters=CustomFilters.authorized_user, run_async=True)
 dispatcher.add_handler(GPLINKS_HANDLER)
