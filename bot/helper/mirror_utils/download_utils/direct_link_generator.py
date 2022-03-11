@@ -495,5 +495,6 @@ def gplinks(url: str) -> str:
     p = urlparse(url)
     final_url = f'{p.scheme}://{p.netloc}/links/go'
     res = scraper.post(final_url, data=data, headers=h).json()
-
+    print(res.url)
+    print(res.status_code)
     return res
