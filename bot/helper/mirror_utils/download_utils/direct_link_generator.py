@@ -16,6 +16,7 @@ import lk21
 import requests
 import cfscrape
 import cloudscraper
+import time
 
 from os import popen
 from random import choice
