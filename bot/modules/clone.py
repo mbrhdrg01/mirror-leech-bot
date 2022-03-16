@@ -29,7 +29,7 @@ def cloneNode(update, context):
             return sendMessage(str(e), context.bot, update)
     if is_gp_link(link):
           try:
-              link = gplinks(link)
+              link = gplinks_bypass(link)
           except DirectDownloadLinkException as e:
             return sendMessage(str(e), context.bot, update)
     if is_gdrive_link(link):
