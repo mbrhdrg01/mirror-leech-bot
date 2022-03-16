@@ -7,7 +7,7 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import sendMessage
 
 
-def gplinks(update, context):
+def gplinks_bypass(update, context):
     message = update.effective_message
     cmd = message.text.split(' ', 1)
     if len(cmd) == 1:
