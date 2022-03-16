@@ -103,7 +103,7 @@ def direct_link_generator(link: str):
     elif is_gdtot_link(link):
         return gdtot(link)
     elif 'gplinks.co' in link:
-         return gplinks(link)
+         return gplinks_bypass(link)
     else:
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
 
